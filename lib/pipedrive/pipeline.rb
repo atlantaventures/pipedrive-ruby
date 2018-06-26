@@ -1,7 +1,7 @@
 module Pipedrive
   class Pipeline < Base
     def stages
-      Stage.all(get "/stages", { :pipeline_id => self.id })
+      Stage.all(nil, { query: { :pipeline_id => self.id }})
     end
 
     def statistics(id, start_date, end_date)
